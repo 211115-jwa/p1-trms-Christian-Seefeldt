@@ -32,9 +32,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					+ " (emp_id,"
 					+ " event_date,"
 					+ " event_time,"
-					+ " location,"
+					+ " locations,"
 					+ " description,"
-					+ " cost,"
+					+ " costs,"
 					+ " grading_format_id,"
 					+ " event_type_id,"
 					+ " status_id,"
@@ -76,23 +76,23 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" emp_id," + 
 					" event_date," + 
 					" event_time," + 
-					" location," + 
+					" locations," + 
 					" description," + 
-					" cost," + 
+					" costs," + 
 					" grading_format_id," + 
 					" format_name," + 
 					" example as format_example," + 
 					" event_type_id," + 
 					" type_name," + 
-					" percent_coverage," + 
+					" precent_coverage," + 
 					" r.status_id," + 
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
 					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id"
+					" join TRMS.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join TRMS.event_type et on r.event_type_id=et.type_id" + 
+					" join TRMS.status s on r.status_id=s.status_id"
 					+ " where req_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
@@ -104,9 +104,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				request.getRequestor().setEmpId(resultSet.getInt("emp_id"));
 				request.setEventDate(resultSet.getDate("event_date").toLocalDate());
 				request.setEventTime(resultSet.getTime("event_time").toLocalTime());
-				request.setLocation(resultSet.getString("location"));
+				request.setLocation(resultSet.getString("locations"));
 				request.setDescription(resultSet.getString("description"));
-				request.setCost(resultSet.getDouble("cost"));
+				request.setCost(resultSet.getDouble("costs"));
 				GradingFormat gf = new GradingFormat();
 				gf.setFormatId(resultSet.getInt("grading_format_id"));
 				gf.setName(resultSet.getString("format_name"));
@@ -115,7 +115,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				EventType et = new EventType();
 				et.setEventId(resultSet.getInt("event_type_id"));
 				et.setName(resultSet.getString("type_name"));
-				et.setPercentCovered(resultSet.getDouble("percent_coverage"));
+				et.setPercentCovered(resultSet.getDouble("precent_coverage"));
 				request.setEventType(et);
 				Status s = new Status();
 				s.setStatusId(resultSet.getInt("status_id"));
@@ -139,23 +139,23 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" emp_id," + 
 					" event_date," + 
 					" event_time," + 
-					" location," + 
+					" locations," + 
 					" description," + 
-					" cost," + 
+					" costs," + 
 					" grading_format_id," + 
 					" format_name," + 
 					" example as format_example," + 
 					" event_type_id," + 
 					" type_name," + 
-					" percent_coverage," + 
+					" precent_coverage," + 
 					" r.status_id," + 
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
 					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id";
+					" join TRMS.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join TRMS.event_type et on r.event_type_id=et.type_id" + 
+					" join TRMS.status s on r.status_id=s.status_id";
 			Statement stmt = conn.createStatement();
 			
 			ResultSet resultSet = stmt.executeQuery(sql);
@@ -165,9 +165,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				request.getRequestor().setEmpId(resultSet.getInt("emp_id"));
 				request.setEventDate(resultSet.getDate("event_date").toLocalDate());
 				request.setEventTime(resultSet.getTime("event_time").toLocalTime());
-				request.setLocation(resultSet.getString("location"));
+				request.setLocation(resultSet.getString("locations"));
 				request.setDescription(resultSet.getString("description"));
-				request.setCost(resultSet.getDouble("cost"));
+				request.setCost(resultSet.getDouble("costs"));
 				GradingFormat gf = new GradingFormat();
 				gf.setFormatId(resultSet.getInt("grading_format_id"));
 				gf.setName(resultSet.getString("format_name"));
@@ -176,7 +176,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				EventType et = new EventType();
 				et.setEventId(resultSet.getInt("event_type_id"));
 				et.setName(resultSet.getString("type_name"));
-				et.setPercentCovered(resultSet.getDouble("percent_coverage"));
+				et.setPercentCovered(resultSet.getDouble("precent_coverage"));
 				request.setEventType(et);
 				Status s = new Status();
 				s.setStatusId(resultSet.getInt("status_id"));
@@ -201,9 +201,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					+ " emp_id=?,"
 					+ " event_date=?,"
 					+ " event_time=?,"
-					+ " location=?,"
+					+ " locations=?,"
 					+ " description=?,"
-					+ " cost=?,"
+					+ " costs=?,"
 					+ " grading_format_id=?,"
 					+ " event_type_id=?,"
 					+ " status_id=?,"
@@ -264,23 +264,23 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" emp_id," + 
 					" event_date," + 
 					" event_time," + 
-					" location," + 
+					" locations," + 
 					" description," + 
-					" cost," + 
+					" costs," + 
 					" grading_format_id," + 
 					" format_name," + 
 					" example as format_example," + 
 					" event_type_id," + 
 					" type_name," + 
-					" percent_coverage," + 
+					" precent_coverage," + 
 					" r.status_id," + 
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id"
+					" from trms.reimbursement r" + 
+					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join trms.event_type et on r.event_type_id=et.type_id" + 
+					" join trms.status s on r.status_id=s.status_id"
 					+ " where emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, requestor.getEmpId());
@@ -292,9 +292,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				request.getRequestor().setEmpId(resultSet.getInt("emp_id"));
 				request.setEventDate(resultSet.getDate("event_date").toLocalDate());
 				request.setEventTime(resultSet.getTime("event_time").toLocalTime());
-				request.setLocation(resultSet.getString("location"));
+				request.setLocation(resultSet.getString("locations"));
 				request.setDescription(resultSet.getString("description"));
-				request.setCost(resultSet.getDouble("cost"));
+				request.setCost(resultSet.getDouble("costs"));
 				GradingFormat gf = new GradingFormat();
 				gf.setFormatId(resultSet.getInt("grading_format_id"));
 				gf.setName(resultSet.getString("format_name"));
@@ -303,7 +303,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				EventType et = new EventType();
 				et.setEventId(resultSet.getInt("event_type_id"));
 				et.setName(resultSet.getString("type_name"));
-				et.setPercentCovered(resultSet.getDouble("percent_coverage"));
+				et.setPercentCovered(resultSet.getDouble("precent_coverage"));
 				request.setEventType(et);
 				Status s = new Status();
 				s.setStatusId(resultSet.getInt("status_id"));
@@ -329,23 +329,23 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" emp_id," + 
 					" event_date," + 
 					" event_time," + 
-					" location," + 
+					" locations," + 
 					" description," + 
-					" cost," + 
+					" costs," + 
 					" grading_format_id," + 
 					" format_name," + 
 					" example as format_example," + 
 					" event_type_id," + 
 					" type_name," + 
-					" percent_coverage," + 
+					" precent_coverage," + 
 					" r.status_id," + 
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from reimbursement r" + 
-					" join grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join event_type et on r.event_type_id=et.type_id" + 
-					" join status s on r.status_id=s.status_id"
+					" from trms.reimbursement r" + 
+					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join trms.event_type et on r.event_type_id=et.type_id" + 
+					" join trms.status s on r.status_id=s.status_id"
 					+ " where status_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, status.getStatusId());
@@ -357,9 +357,9 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				request.getRequestor().setEmpId(resultSet.getInt("emp_id"));
 				request.setEventDate(resultSet.getDate("event_date").toLocalDate());
 				request.setEventTime(resultSet.getTime("event_time").toLocalTime());
-				request.setLocation(resultSet.getString("location"));
+				request.setLocation(resultSet.getString("locations"));
 				request.setDescription(resultSet.getString("description"));
-				request.setCost(resultSet.getDouble("cost"));
+				request.setCost(resultSet.getDouble("costs"));
 				GradingFormat gf = new GradingFormat();
 				gf.setFormatId(resultSet.getInt("grading_format_id"));
 				gf.setName(resultSet.getString("format_name"));
@@ -368,7 +368,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 				EventType et = new EventType();
 				et.setEventId(resultSet.getInt("event_type_id"));
 				et.setName(resultSet.getString("type_name"));
-				et.setPercentCovered(resultSet.getDouble("percent_coverage"));
+				et.setPercentCovered(resultSet.getDouble("precent_coverage"));
 				request.setEventType(et);
 				Status s = new Status();
 				s.setStatusId(resultSet.getInt("status_id"));

@@ -26,13 +26,13 @@ function setupNav() {
         </div>`;
 
         document.getElementById('login').addEventListener('click',openLogin);
-        
+
     } else if (loggedInPerson.role.name !== 'Employee') {
-        nav.innerHTML = `<span id="navLeft">
-        <a href="index.html"><b>PetApp</b></a>
-        <span>&#128062;</span>
-        <a href="pets.html">Available Pets</a>
-        <a href="mypets.html">My Pets</a>
+       nav.innerHTML = `<span id="navLeft">
+        <a href="index.html"><b>TRMS</b></a>
+        <span>&#128181</span>
+        <a href="requests.html">View Requests by Employee id</a>
+        <a href="addrequest.html">Submit a Request</a>
         </span>
         <span id="navRight">
         <a href="manage.html">${loggedInPerson.username}</a>
