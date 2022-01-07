@@ -40,7 +40,46 @@ function setupNav() {
         </span>`;
 
         document.getElementById('logout').addEventListener('click',logOut);
-    } else {
+    } else if (loggedInPerson.role.name !== 'Supervisor') {
+        nav.innerHTML = `<span id="navLeft">
+         <a href="index.html"><b>TRMS</b></a>
+         <span>&#128181</span>
+         <a href="requests.html">View Requests by Employee id</a>
+         <a href="addrequest.html">Submit a Request</a>
+         </span>
+         <span id="navRight">
+         <a href="manage.html">${loggedInPerson.username}</a>
+         <button id="logout">Log Out</button>
+         </span>`;
+ 
+         document.getElementById('logout').addEventListener('click',logOut);
+     } else if (loggedInPerson.role.name !== 'Department Head') {
+        nav.innerHTML = `<span id="navLeft">
+         <a href="index.html"><b>TRMS</b></a>
+         <span>&#128181</span>
+         <a href="requests.html">View Requests by Employee id</a>
+         <a href="addrequest.html">Submit a Request</a>
+         </span>
+         <span id="navRight">
+         <a href="manage.html">${loggedInPerson.username}</a>
+         <button id="logout">Log Out</button>
+         </span>`;
+ 
+         document.getElementById('logout').addEventListener('click',logOut);
+     } else if (loggedInPerson.role.name !== 'Benefits Cordinator') {
+        nav.innerHTML = `<span id="navLeft">
+         <a href="index.html"><b>TRMS</b></a>
+         <span>&#128181</span>
+         <a href="requests.html">View Requests by Employee id</a>
+         <a href="addrequest.html">Submit a Request</a>
+         </span>
+         <span id="navRight">
+         <a href="manage.html">${loggedInPerson.username}</a>
+         <button id="logout">Log Out</button>
+         </span>`;
+ 
+         document.getElementById('logout').addEventListener('click',logOut);
+     } else {
         nav.innerHTML = `<span id="navLeft">
         <a href="index.html"><b>PetApp</b></a>
         <span>&#128062;</span>
