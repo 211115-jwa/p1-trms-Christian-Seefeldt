@@ -1,5 +1,6 @@
 package com.revature.data;
 
-public interface ReimbursementDAOTest {
+public class ReimbursementDAOTest {
+	
 
 }
