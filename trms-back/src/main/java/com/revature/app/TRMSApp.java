@@ -6,6 +6,8 @@ import io.javalin.http.HttpCode;
 import static io.javalin.apibuilder.ApiBuilder.*;
 
 import com.revature.controllers.RequestsController;
+import com.revature.controllers.EmployeesController;
+import com.revature.controllers.UsersController;
 
 public class TRMSApp {
 
@@ -31,6 +33,9 @@ public class TRMSApp {
 				path("/id/{empId}", () -> {
 					get(EmployeesController::viewEmployeeById);
 		
+				});
+			});
+			
 		app.routes(() -> {
 			path("/requests", () -> {
 				post(RequestsController::submitReimbursementRequest);
@@ -53,8 +58,8 @@ public class TRMSApp {
 				});
 			});
 		});
-	}
-
+	});
+}
 }
 
 // Login Page
