@@ -31,8 +31,8 @@ function setupNav() {
        nav.innerHTML = `<span id="navLeft">
         <a href="index.html"><b>TRMS</b></a>
         <span>&#128181</span>
-        <a href="requests.html">View Requests by Employee id</a>
-        <a href="addrequest.html">Submit a Request</a>
+        <a href="ViewRequests.html">View Requests by Employee id</a>
+        <a href="Request.html">Submit a Request</a>
         </span>
         <span id="navRight">
         <a href="manage.html">${loggedInPerson.username}</a>
@@ -42,41 +42,41 @@ function setupNav() {
         document.getElementById('logout').addEventListener('click',logOut);
     } else if (loggedInPerson.role.name !== 'Supervisor') {
         nav.innerHTML = `<span id="navLeft">
-         <a href="index.html"><b>TRMS</b></a>
-         <span>&#128181</span>
-         <a href="requests.html">View Requests by Employee id</a>
-         <a href="addrequest.html">Submit a Request</a>
-         </span>
-         <span id="navRight">
-         <a href="manage.html">${loggedInPerson.username}</a>
-         <button id="logout">Log Out</button>
-         </span>`;
+        <a href="index.html"><b>TRMS</b></a>
+        <span>&#128181</span>
+        <a href="ViewRequests.html">View Requests by Employee id</a>
+        <a href="Request.html">Submit a Request</a>
+        </span>
+        <span id="navRight">
+        <a href="manage.html">${loggedInPerson.username}</a>
+        <button id="logout">Log Out</button>
+        </span>`;
  
          document.getElementById('logout').addEventListener('click',logOut);
      } else if (loggedInPerson.role.name !== 'Department Head') {
         nav.innerHTML = `<span id="navLeft">
-         <a href="index.html"><b>TRMS</b></a>
-         <span>&#128181</span>
-         <a href="requests.html">View Requests by Employee id</a>
-         <a href="addrequest.html">Submit a Request</a>
-         </span>
-         <span id="navRight">
-         <a href="manage.html">${loggedInPerson.username}</a>
-         <button id="logout">Log Out</button>
-         </span>`;
+        <a href="index.html"><b>TRMS</b></a>
+        <span>&#128181</span>
+        <a href="ViewRequests.html">View Requests by Employee id</a>
+        <a href="Request.html">Submit a Request</a>
+        </span>
+        <span id="navRight">
+        <a href="manage.html">${loggedInPerson.username}</a>
+        <button id="logout">Log Out</button>
+        </span>`;
  
          document.getElementById('logout').addEventListener('click',logOut);
      } else if (loggedInPerson.role.name !== 'Benefits Cordinator') {
         nav.innerHTML = `<span id="navLeft">
-         <a href="index.html"><b>TRMS</b></a>
-         <span>&#128181</span>
-         <a href="requests.html">View Requests by Employee id</a>
-         <a href="addrequest.html">Submit a Request</a>
-         </span>
-         <span id="navRight">
-         <a href="manage.html">${loggedInPerson.username}</a>
-         <button id="logout">Log Out</button>
-         </span>`;
+        <a href="index.html"><b>TRMS</b></a>
+        <span>&#128181</span>
+        <a href="ViewRequests.html">View Requests by Employee id</a>
+        <a href="Request.html">Submit a Request</a>
+        </span>
+        <span id="navRight">
+        <a href="manage.html">${loggedInPerson.username}</a>
+        <button id="logout">Log Out</button>
+        </span>`;
  
          document.getElementById('logout').addEventListener('click',logOut);
      } else {
@@ -138,7 +138,7 @@ async function submitLogin() {
         'password':password
     };
 
-    let response = await fetch(petAppUrl + 'users/auth',{method:'POST',body:JSON.stringify(credentials)});
+    let response = await fetch(TRMSAppUrl + 'users/auth',{method:'POST',body:JSON.stringify(credentials)});
     if (response.status===200) {
         let token = await response.text();
         localStorage.setItem('Token', token);
