@@ -38,7 +38,7 @@ function setupNav() {
     } else if (loggedInPerson.role.roleId == 1) {
        nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
-        <a href="ViewRequests.html">View Requests</a>
+        <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
         <a href="Grade.html">Submit a Grade</a>
         <a hidden>Approve a Request</a>
@@ -53,7 +53,7 @@ function setupNav() {
     } else if (loggedInPerson.role.roleId == 2) {
         nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
-        <a href="ViewRequests.html">View Requests</a>
+        <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
         <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
@@ -68,7 +68,7 @@ function setupNav() {
      } else if (loggedInPerson.role.roleId == 3) {
         nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
-        <a href="ViewRequests.html">View Requests</a>
+        <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
         <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
@@ -83,7 +83,7 @@ function setupNav() {
      } else if (loggedInPerson.role.roleId == 4) {
         nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
-        <a href="ViewRequests.html">View Requests</a>
+        <a href="ViewRequest.html">View Requests</a>
         <a href="Grade.html">Submit a Grade</a>
         <a href="Benco Approval.html">Approve a Request</a>
         <a href="Approval.html">Approve a Grade</a>
@@ -97,7 +97,7 @@ function setupNav() {
      } else {
         nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
-        <a href="ViewRequests.html">View Requests</a>
+        <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
         </span>
         <span id="navRight">

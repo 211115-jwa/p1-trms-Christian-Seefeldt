@@ -4,7 +4,7 @@ document.getElementById(`reqbutton`).onclick = getRequests;
 async function getRequests() {
     let userInput = document.getElementById('dataInput').value; 
 
-    let response = await fetch(reqAppUrl + 'requests/requestor/' + userInput);
+    let response = await fetch(TRMSAppUrl + 'requests/requestor/' + userInput);
     
     
 
