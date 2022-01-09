@@ -72,7 +72,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from trms.employee join user_role on employee.role_id=user_role.role_id"
+					+ " from TRMS.employee join user_role on employee.role_id=user_role.role_id"
 					+ " where emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
@@ -117,7 +117,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from trms.employee join user_role on employee.role_id=user_role.role_id";
+					+ " from TRMS.employee join user_role on employee.role_id=user_role.role_id";
 			Statement stmt = conn.createStatement();
 			
 			ResultSet resultSet = stmt.executeQuery(sql);
@@ -220,7 +220,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds,"
 					+ " supervisor_id,"
 					+ " dept_id"
-					+ " from trms.employee join user_role on employee.role_id=user_role.role_id"
+					+ " from TRMS.employee join user_role on employee.role_id=user_role.role_id"
 					+ " where username=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, username);

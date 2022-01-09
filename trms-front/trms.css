@@ -82,3 +82,7 @@ button:hover {
     padding: 1em;
     background-color:#cccdff;
 }
+footer {
+    color: brown;
+    font-size: 10pt;
+}

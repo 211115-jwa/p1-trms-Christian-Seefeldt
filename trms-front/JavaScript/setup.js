@@ -45,7 +45,7 @@ function setupNav() {
         <a hidden>Approve a Grade</a>
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
 
@@ -57,10 +57,10 @@ function setupNav() {
         <a href="Request.html">Submit a Request</a>
         <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
-        <a href="Approval.html">Approve a Grade</a>
+        <a href="GradeApproval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
  
@@ -72,10 +72,10 @@ function setupNav() {
         <a href="Request.html">Submit a Request</a>
         <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
-        <a href="Approval.html">Approve a Grade</a>
+        <a href="GradeApproval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
  
@@ -84,12 +84,11 @@ function setupNav() {
         nav.innerHTML = `<span id="navLeft">
         <a href="Login.html"><b>TRMS</b></a>
         <a href="ViewRequest.html">View Requests</a>
-        <a href="Grade.html">Submit a Grade</a>
-        <a href="Benco Approval.html">Approve a Request</a>
+        <a href="Benco-Approval.html">Approve a Request</a>
         <a href="Approval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
  
@@ -101,7 +100,7 @@ function setupNav() {
         <a href="Request.html">Submit a Request</a>
         </span>
         <span id="navRight">
-        <a href="manage.html">${loggedInPerson.username}</a>
+        <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
         <button id="logout">Log Out</button>
         </span>`;
 

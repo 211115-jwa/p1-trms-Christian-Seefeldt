@@ -27,8 +27,8 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 		int generatedId=0;
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String[] keys = {"req_Id"};
-			String sql="insert into reimbursement"
+			String[] keys = {"req_id"};
+			String sql="insert into trms.reimbursement"
 					+ " (emp_id,"
 					+ " event_date,"
 					+ " event_time,"
@@ -152,7 +152,7 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from reimbursement r" + 
+					" from TRMS.reimbursement r" + 
 					" join TRMS.grading_format gf on r.grading_format_id=gf.format_id" + 
 					" join TRMS.event_type et on r.event_type_id=et.type_id" + 
 					" join TRMS.status s on r.status_id=s.status_id";
@@ -277,10 +277,10 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from trms.reimbursement r" + 
-					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join trms.event_type et on r.event_type_id=et.type_id" + 
-					" join trms.status s on r.status_id=s.status_id"
+					" from TRMS.reimbursement r" + 
+					" join TRMS.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join TRMS.event_type et on r.event_type_id=et.type_id" + 
+					" join TRMS.status s on r.status_id=s.status_id"
 					+ " where emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, requestor.getEmpId());
@@ -342,10 +342,10 @@ public class ReimbursementPostgres implements ReimbursementDAO {
 					" status_name," + 
 					" approver," + 
 					" submitted_at " + 
-					" from trms.reimbursement r" + 
-					" join trms.grading_format gf on r.grading_format_id=gf.format_id" + 
-					" join trms.event_type et on r.event_type_id=et.type_id" + 
-					" join trms.status s on r.status_id=s.status_id"
+					" from TRMS.reimbursement r" + 
+					" join TRMS.grading_format gf on r.grading_format_id=gf.format_id" + 
+					" join TRMS.event_type et on r.event_type_id=et.type_id" + 
+					" join TRMS.status s on r.status_id=s.status_id"
 					+ " where status_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, status.getStatusId());

@@ -60,7 +60,7 @@ public class Reimbursement {
 	}
 
 	public LocalTime getEventTime() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime lt = LocalTime.parse(eventTime,formatter);
 		return lt;
 	}
