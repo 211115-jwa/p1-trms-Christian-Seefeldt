@@ -42,6 +42,15 @@ public class TRMSApp {
 				path("/requestor/{id}", () -> {
 					get(RequestsController::getRequestsByRequestor);
 				});
+				path("/requestor/approve/{id}", () -> {
+					put(RequestsController::approveRequest);
+				});
+				path("/requestor/deny/{id}", () -> {
+					put(RequestsController::denyRequest);
+				});
+			});
+			path("/requests/manage/{id}", ()->{
+				get(RequestsController::getPendingRequestsByRequestor);
 			});
 			
 			path("/users", () -> {
@@ -58,8 +67,8 @@ public class TRMSApp {
 				});
 			});
 		});
-	});
-}
+		});
+	}
 }
 
 // Login Page

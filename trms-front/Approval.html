@@ -1,25 +1,28 @@
 <html>
 <head>
-    <title> TRMS </title>
+    <title> TRMS | Request Approval </title>
     <link rel="stylesheet" href="trms.css">
 </head>
 <body>
     <nav id="nav">
     </nav>
     <main>
-    <form name="Approval/deny request">
-<header>
-    <h1><span>Request Approval</span></h1>
-</header>
-
-<h2> Approval Form</h2>
-
-<p></p>
-
-<h3>Enter your ID below</h3>
-
-<label for="ID">ID:</label>
-<input id="Idvalue" name="ID">
+    <header>
+        <h1><span>Request Approval</span></h1>
+    </header>
+    <form name="Pending requests">
+        <label for="viewAll">Request ID:</label>
+        <input type="number" min=0 name="reqid" id="reqid">
+        <button type="button" name="viewAll" id="approve" onclick="approveRequest()">Approve</button>
+        <button type="button" name="viewAll" id="deny" onclick="denyRequest()">Deny</button>
+    </form>
+    <br>
+    <br>
+    <form name="PendingRequests">
+        <label for="viewAll">Employee ID:</label>
+        <input type="number" min=0 name="employid" id="empid">
+        <button type="button" name="viewAll" id="submit2"onclick="getPendingRequestByID()">View All Requests</button>
+    </form>
 
 
 <script src="JavaScript/setup.js"></script>

@@ -1,15 +1,21 @@
 package com.revature.controllers;
 
+import java.util.Set;
+
 import com.revature.beans.Employee;
 import com.revature.beans.Reimbursement;
+import com.revature.beans.Status;
 import com.revature.services.EmployeeService;
 import com.revature.services.EmployeeServiceImpl;
+import com.revature.services.RequestReviewService;
+import com.revature.services.RequestReviewServiceImpl;
 
 import io.javalin.http.Context;
 import io.javalin.http.HttpCode;
 
 public class RequestsController {
 	private static EmployeeService empServ = new EmployeeServiceImpl();
+	private static RequestReviewService reqRevServ = new RequestReviewServiceImpl();
 	
 	/**
 	 * Retrieves the submitted reimbursement request from the
@@ -75,5 +81,59 @@ public class RequestsController {
 			ctx.status(400);
 			ctx.result("Requestor ID must be an integer. Please try again.");
 		}
+	}
+	
+	public static void getPendingRequestsByRequestor(Context ctx) {
+		
+		String requestorIdStr = ctx.pathParam("id");
+
+		try {
+			int requestorId = Integer.valueOf(requestorIdStr);
+			Employee requestor = empServ.getEmployeeById(requestorId);
+			
+			if (requestor != null) {
+				ctx.json(reqRevServ.getPendingReimbursements(requestor));
+			} else {
+				ctx.status(404);
+				ctx.result("There are no pending requests");
+			}
+		} catch (NumberFormatException e) {
+			ctx.status(400);
+			ctx.result("Requestor ID must be an integer. Please try again.");
+		}
+	}
+	
+	public static void approveRequest(Context ctx) {
+		String requestorIdStr = ctx.pathParam("id");
+		Status status = ctx.bodyAsClass(Status.class);
+		
+		try {
+			int requestorId = Integer.valueOf(requestorIdStr);
+			Reimbursement request =reqRevServ.getById(requestorId);
+			request.setStatus(status);
+			reqRevServ.approveRequest(request);
+			ctx.status(202);
+			ctx.json(request);
+		} catch (NumberFormatException e) {
+			ctx.status(406);
+			ctx.result("Invalid request. Please try again.");
+		}
+	}
+	public static void denyRequest(Context ctx) {
+
+		String requestorIdStr = ctx.pathParam("id");
+		Status stat = ctx.bodyAsClass(Status.class);
+		try {
+			int requestorId = Integer.valueOf(requestorIdStr);
+			Reimbursement request =reqRevServ.getById(requestorId);
+			request.setStatus(stat);
+			reqRevServ.rejectRequest(request);
+			ctx.status(202);
+			ctx.json(request);
+		} catch (NumberFormatException e) {
+			ctx.status(406);
+			ctx.result("Invalid request. Please try again.");
+		}
+		
 	}
 }
