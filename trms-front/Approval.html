@@ -13,6 +13,12 @@
     <form name="Pending requests">
         <label for="viewAll">Request ID:</label>
         <input type="number" min=0 name="reqid" id="reqid">
+        <label for="tuser">Current Role</label>
+        <select id="role" name="tuser">
+            <option value="direct supervisor">Supervisor</option>
+            <option value="department head">Department Head</option>
+            <option value="benefits coordinator">Benefits Coordinator</option>
+        </select>
         <button type="button" name="viewAll" id="approve" onclick="approveRequest()">Approve</button>
         <button type="button" name="viewAll" id="deny" onclick="denyRequest()">Deny</button>
     </form>

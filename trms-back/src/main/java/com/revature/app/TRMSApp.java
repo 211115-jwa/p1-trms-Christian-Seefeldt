@@ -32,7 +32,9 @@ public class TRMSApp {
 
 				path("/id/{empId}", () -> {
 					get(EmployeesController::viewEmployeeById);
-		
+				});
+				path("/username/{username}", () -> {
+					get(EmployeesController::viewEmployeeByUsername);
 				});
 			});
 			

@@ -25,9 +25,7 @@ function setupNav() {
         <a href="Login.html"><b>Tuition Reimbursement Application</b></a>
         <a hidden>View Requests</a>
         <a hidden>Submit Requests</a>
-        <a hidden>Submit Grades</a>
         <a hidden>Approve a Request</a>
-        <a hidden>Approve a Grade</a>
         </span>
         <span id="navRight">
         <button id="login">Log In</button>
@@ -40,9 +38,7 @@ function setupNav() {
         <a href="Login.html"><b>TRMS</b></a>
         <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
-        <a href="Grade.html">Submit a Grade</a>
         <a hidden>Approve a Request</a>
-        <a hidden>Approve a Grade</a>
         </span>
         <span id="navRight">
         <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
@@ -55,9 +51,7 @@ function setupNav() {
         <a href="Login.html"><b>TRMS</b></a>
         <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
-        <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
-        <a href="GradeApproval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
         <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
@@ -70,9 +64,7 @@ function setupNav() {
         <a href="Login.html"><b>TRMS</b></a>
         <a href="ViewRequest.html">View Requests</a>
         <a href="Request.html">Submit a Request</a>
-        <a href="Grade.html">Submit a Grade</a>
         <a href="Approval.html">Approve a Request</a>
-        <a href="GradeApproval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
         <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>
@@ -85,7 +77,6 @@ function setupNav() {
         <a href="Login.html"><b>TRMS</b></a>
         <a href="ViewRequest.html">View Requests</a>
         <a href="Benco-Approval.html">Approve a Request</a>
-        <a href="Approval.html">Approve a Grade</a>
         </span>
         <span id="navRight">
         <a id="manageUser" href="manage.html">${loggedInPerson.username}</a>

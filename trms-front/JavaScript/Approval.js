@@ -72,6 +72,71 @@ async function denyRequest() {
         alert('Denied');
     if (response.status === 406)
         alert('No requests found make sure id is a number');
+}
+function getStatus(sname,approver) {
+    let stat;
+    if (sname === "pending approval") {
+        if (approver === "direct supervisor")
+            stat = {
+                "statusId": 1,
+                "name": "pending approval",
+                "approver": "direct supervisor"
+            };
+        if (approver === "department head")
+            stat = {
+                "statusId": 4,
+                "name": "pending approval",
+                "approver": "department head"
+            };
+        if (approver === "benefits coordinator")
+            stat = {
+                "statusId": 7,
+                "name": "pending approval",
+                "approver": "benefits coordinator"
+            };
 
+    }
+    else if (sname === "approved") {
+        if (approver === "direct supervisor")
+            stat = {
+                "statusId":2,
+                "name": "approved",
+                "approver": "direct supervisor"
+            };
+        if (approver === "department head")
+            stat = {
+                "statusId": 5,
+                "name": "approved",
+                "approver": "department head"
+            };
+        if (approver === "benefits coordinator")
+            stat = {
+                "statusId": 8,
+                "name": "approved",
+                "approver": "benefits coordinator"
+            };
 
+    }
+    else if (sname === "denied") {
+        if (approver === "direct supervisor")
+            stat = {
+                "statusId": 3,
+                "name": "denied",
+                "approver": "direct supervisor"
+            };
+        if (approver === "department head")
+            stat = {
+                "statusId": 6,
+                "name": "denied",
+                "approver": "department head"
+            };
+        if (approver === "benefits coordinator")
+            stat = {
+                "statusId": 9,
+                "name": "denied",
+                "approver": "benefits coordinator"
+            };
+
+    }
+    return stat;
 }

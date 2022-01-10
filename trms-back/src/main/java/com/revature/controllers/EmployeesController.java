@@ -35,7 +35,20 @@ public static void viewAllEmployees(Context ctx) {
 		ctx.status(400);
 		ctx.result("Employee ID must be an integer. Please try again.");
 	}
-		
-	}
+}
+
+		public static void viewEmployeeByUsername(Context ctx) {
+			String usr = (ctx.pathParam("username"));
+	
+			employee = empDao.getByUsername(usr);
+			
+			if (usr != null) {
+				ctx.json(employee);
+				
+			} else {
+				ctx.status(404);
+				ctx.result("The employee does not exist.");
+			}
+		}
 }
 
