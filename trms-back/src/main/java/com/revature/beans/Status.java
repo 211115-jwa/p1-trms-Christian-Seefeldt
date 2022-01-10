@@ -9,10 +9,13 @@ public class Status {
 	
 	public Status() {
 		statusId=1;
-		name="Pending Approval";
-		approver="Direct Supervisor";
+		name="pending approval:supervisor";
+		approver="direct supervisor";
 	}
-
+	public Status(int statusId) {
+		super();
+		this.statusId = statusId;
+	}
 	public int getStatusId() {
 		return statusId;
 	}

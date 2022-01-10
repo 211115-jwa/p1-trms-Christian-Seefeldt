@@ -36,7 +36,6 @@ function showPendingRequests(requests) {
         requestTable.appendChild(rows);
        
     }
-    alert("results");
 }
 async function getPendingRequestByID() {
 
