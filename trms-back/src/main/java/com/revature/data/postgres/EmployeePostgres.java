@@ -21,7 +21,7 @@ public class EmployeePostgres implements EmployeeDAO {
 		int generatedId=0;
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
-			String[] keys = {"emp_Id"};
+			String[] keys = {"emp_id"};
 			String sql="insert into employee"
 					+ " (first_name,"
 					+ " last_name,"
@@ -73,7 +73,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " supervisor_id,"
 					+ " dept_id"
 					+ " from TRMS.employee join user_role on employee.role_id=user_role.role_id"
-					+ " where emp_id=?";
+					+ " where employee.emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, id);
 			
@@ -160,7 +160,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " funds=?,"
 					+ " supervisor_id=?,"
 					+ " dept_id=?"
-					+ " where emp_id=?";
+					+ " where employee.emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, dataToUpdate.getFirstName());
 			pStmt.setString(2, dataToUpdate.getLastName());
@@ -189,7 +189,7 @@ public class EmployeePostgres implements EmployeeDAO {
 		try (Connection conn = connUtil.getConnection()) {
 			conn.setAutoCommit(false);
 			String sql="delete from employee"
-					+ " where emp_id=?";
+					+ " where employee.emp_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, dataToDelete.getEmpId());
 			
@@ -221,7 +221,7 @@ public class EmployeePostgres implements EmployeeDAO {
 					+ " supervisor_id,"
 					+ " dept_id"
 					+ " from TRMS.employee join user_role on employee.role_id=user_role.role_id"
-					+ " where username=?";
+					+ " where employee.username=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, username);
 			
