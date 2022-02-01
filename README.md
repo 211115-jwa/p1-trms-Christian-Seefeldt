@@ -15,3 +15,18 @@ The goal of this project is for you to work with Agile methodology, testing (uni
 3. Unit tests must exist for DAOs (JUnit) and services (JUnit/Mockito).
 4. Cucumber/Selenium tests must exist for all new features that you add, as well as the submitting/viewing features.
 5. Front end must be built using HTML/CSS and JavaScript. Styling libraries like Bootstrap are allowed.
+
+## Technologies Used
+
+* AWS RDS PostgreSQL 12
+* Java 8
+* JUnit 5
+* Mockito 4
+* Cucumber 7
+* Selenium 4
+* HTML 5 with CSS
+* JavaScript EMCA 6
+
+## Features
+
+* 
